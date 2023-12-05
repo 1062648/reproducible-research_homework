@@ -8,6 +8,11 @@ A random seed is a feature that determines the set of numbers that will be used 
 
 I used the function set.seed to make sure the same random number distribution is used for every run of the code. When I use the set.seed function before the random_walk function both times it is used, the left and right graphs look the same -- the same set of random numbers are being used to create both plots. 
 
+I committed the changes (adding a fixed seed to both plots). This image shows the commit history confirming the change. 
+
+<img width="1397" alt="Screenshot 2023-12-05 at 10 32 55 PM" src="https://github.com/audickinson/reproducible-research_homework/assets/150164051/430455bc-54b5-46d4-8e28-06995836a407">
+
+
 # Question 5
 
 
