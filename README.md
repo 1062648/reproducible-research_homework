@@ -24,6 +24,8 @@ The dataset has 13 columns and 33 rows.
 A log transformation will make the data suitable for linear modeling, because the relationship between genome size and volume follows an exponential relationship. 
 
 To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
+
+
 **$`V = \beta L^{\alpha}`$**
 
 ```math
@@ -42,14 +44,15 @@ log(V) = log(\beta) + log(L^{\alpha})
 
 ```math
 \begin{equation}
-log(V) = log(\beta) + \alpha*log(L)
+log(V) = log(\beta) + \alpha log(L)
 \end{equation}
 ```
 
 
+Comparing the format of linear model y = mx + b to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
+\alpha = 1.5152 according to the results of the linear model relating log virion volume to log genome size (see q5.R). 
 
-Comparing the linear model to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
-\alpha = 1.5152
+
 In table 2 of the paper, the authors report the \alpha value for dsDNA viruses as 1.52, which exactly matches the \alpha value found here. 
 
 To find \beta, back-transform the intercept: e^7.0748 = 1181.807. 
@@ -57,30 +60,7 @@ To find \beta, back-transform the intercept: e^7.0748 = 1181.807.
 The paper reports a \beta value of 1,182, which agrees with this calculation.
 
 
-To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
-
-```math
-\begin{equation}
-V = \beta L^{\alpha}
-\end{equation}
-```
-
-
-
-**$`V = \beta L^{\alpha}`$**
-**$`log(V) = log(\beta L^{\alpha})`$**
-**$`log(V) = log(\beta) + log(L^{\alpha})`$**
-**$`log(V) = log(\beta) + \alpha*log(L)`$**
-
-Comparing the linear model to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
-\alpha = 1.5152
-In table 2 of the paper, the authors report the \alpha value for dsDNA viruses as 1.52, which exactly matches the \alpha value found here. 
-
-To find \beta, back-transform the intercept: e^7.0748 = 1181.807. 
-
-The paper reports a \beta value of 1,182, which agrees with this calculation.
-
-Reproducing the figure in the README report: 
+Reproducing the figure in the README report (also in q5.r): 
 
 virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +
   geom_point() +
@@ -93,6 +73,8 @@ virion_plot
 
 png(filename="virion_plot.png", width=600, height=500)
 
+
+
 To calculate the volume of a 300 kb dsDNA virus, we can use the final parameters or the linear model: 
 **$`V = \beta L^{\alpha}`$**
 **$`V = 1182 * 300^{1.52}`$**
@@ -103,7 +85,7 @@ log(virion_volume) = 7.0748 + 1.5152 * log(300)
 log(virion_volume) = 15.71717
 virion_volume = 6696998
 
-There are minor differences in these two calculations due to rounding, but the model predicts that a 300 kb DNA virus will have a volume of 7 x 10^6 (7 million) nm^3. 
+There are minor differences in these two calculations due to rounding, but both versions of the model generally predict that a 300 kb DNA virus will have a volume of 7 x 10^6 (7 million) nm^3. 
 
 # Bonus
 Reproducibility and replicability are used as synonyms colloquially and in some academic contexts. However, sources more specific to data science tend to distinguish between the two, though not always in consistent ways. For conciseness, I will stick to the Association for Computing Machinery as reported by Plesser (2018, https://www.frontiersin.org/articles/10.3389/fninf.2017.00076/full); however, these definitions shift and flip depending on the author. For example, "reproducibility" as it is used in our computing sessions on creating reproducible code and figures refers to writing code that will run consistently across several machines, though that might be considered "replicable" under these guidelines. 
