@@ -1,6 +1,6 @@
 # Reproducible research: version control and R
 
-# Questions 1-3: Please refer to the logistic growth fork at https://github.com/1062648/logistic_growth . 
+For questions 1-3: Please refer to the logistic growth fork at https://github.com/1062648/logistic_growth . 
 
 # Question 4
 
