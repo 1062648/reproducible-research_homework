@@ -1,5 +1,7 @@
 # Reproducible research: version control and R
 
+# Questions 1-3: Please refer to the logistic growth fork at https://github.com/1062648/logistic_growth . 
+
 # Question 4
 
 Initially, the two faceted plots show different paths because each path is determined by a different set of random steps. Also, every time I re-run the code, a different random path is generated for each left and right graph. 
