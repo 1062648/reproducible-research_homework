@@ -63,7 +63,7 @@ The paper reports a \beta value of 1,182, which agrees with this calculation.
 Reproducing the figure in the README report (also in q5.r): 
 
 virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +
-  geom_point() +
+  geom_point(size = 3) +
   geom_smooth(method='lm') + 
   theme_bw() + 
   labs(x = "log[Genome length (kb)]", y= "log[Virion volume (nm3)]") +
@@ -72,7 +72,7 @@ virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +
 virion_plot
 png(filename="virion_plot.png", width=600, height=500)
 
-![file_show](https://github.com/1062648/reproducible-research_homework/assets/150164051/59ebd23b-aa20-43e6-b2b5-a5b73188edb9)
+![file_show-1](https://github.com/1062648/reproducible-research_homework/assets/150164051/dbf36ae8-3dd7-445f-8578-b5cda4e2304c)
 
 
 
