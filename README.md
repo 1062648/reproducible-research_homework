@@ -62,15 +62,15 @@ The paper reports a \beta value of 1,182, which agrees with this calculation.
 
 Reproducing the figure in the README report (also in q5.r): 
 
-virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +
-  geom_point(size = 3) +
-  geom_smooth(method='lm') + 
-  theme_bw() + 
-  labs(x = "log[Genome length (kb)]", y= "log[Virion volume (nm3)]") +
-  theme(axis.title = element_text(face="bold"))
+virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +    
+  geom_point(size = 3) +    
+  geom_smooth(method='lm') +     
+  theme_bw() +     
+  labs(x = "log[Genome length (kb)]", y= "log[Virion volume (nm3)]") +    
+  theme(axis.title = element_text(face="bold"))   
 
-virion_plot
-png(filename="virion_plot.png", width=600, height=500)
+virion_plot   
+png(filename="virion_plot.png", width=600, height=500)   
 
 ![file_show-1](https://github.com/1062648/reproducible-research_homework/assets/150164051/dbf36ae8-3dd7-445f-8578-b5cda4e2304c)
 
@@ -79,15 +79,15 @@ png(filename="virion_plot.png", width=600, height=500)
 
 
 
-To calculate the volume of a 300 kb dsDNA virus, we can use the final parameters or the linear model: 
-  **$`V = \beta L^{\alpha}`$**
-  **$`V = 1182 * 300^{1.52}`$**
-  **$`V = 6884015$**
+To calculate the volume of a 300 kb dsDNA virus, we can use the final parameters or the linear model:    
+  **$`V = \beta L^{\alpha}`$**   
+  **$`V = 1182 * 300^{1.52}`$**   
+  **$`V = 6884015$**   
 
-  log(virion_volume) = 7.0748 + 1.5152 * log(genome_length)
-  log(virion_volume) = 7.0748 + 1.5152 * log(300)
-  log(virion_volume) = 15.71717
-  virion_volume = 6696998
+  log(virion_volume) = 7.0748 + 1.5152 * log(genome_length)    
+  log(virion_volume) = 7.0748 + 1.5152 * log(300)    
+  log(virion_volume) = 15.71717   
+  virion_volume = 6696998   
 
 There are minor differences in these two calculations due to rounding, but both versions of the model generally predict that a 300 kb DNA virus will have a volume of 7 x 10^6 (7 million) nm^3. 
 
