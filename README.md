@@ -70,10 +70,13 @@ virion_plot <- ggplot(Cui_etal2014,aes(x=log_genome_length, y=log_volume)) +
   theme(axis.title = element_text(face="bold"))
 
 virion_plot
-
 png(filename="virion_plot.png", width=600, height=500)
 
-![61884dbb-debb-4155-b06f-5ef57ba12f86](https://github.com/1062648/reproducible-research_homework/assets/150164051/d3549925-2abd-4d4b-b87e-c75b31eb2d95)
+![file_show](https://github.com/1062648/reproducible-research_homework/assets/150164051/59ebd23b-aa20-43e6-b2b5-a5b73188edb9)
+
+
+
+
 
 
 To calculate the volume of a 300 kb dsDNA virus, we can use the final parameters or the linear model: 
