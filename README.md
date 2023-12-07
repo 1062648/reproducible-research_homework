@@ -49,13 +49,13 @@ log(V) = log(\beta) + \alpha log(L)
 ```
 
 
-Comparing the format of linear model y = mx + b to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
-\alpha = 1.5152 according to the results of the linear model relating log virion volume to log genome size (see q5.R). 
+Comparing the format of linear model y = mx + b to this transformation, the intercept represents log(beta) while the slope represents alpha. 
+alpha = 1.5152 according to the results of the linear model relating log virion volume to log genome size (see q5.R). 
 
 
-In table 2 of the paper, the authors report the \alpha value for dsDNA viruses as 1.52, which exactly matches the \alpha value found here. 
+In table 2 of the paper, the authors report the alpha value for dsDNA viruses as 1.52, which exactly matches the \alpha value found here. 
 
-To find \beta, back-transform the intercept: e^7.0748 = 1181.807. 
+To find beta, back-transform the intercept: e^7.0748 = 1181.807. 
 
 The paper reports a \beta value of 1,182, which agrees with this calculation.
 
