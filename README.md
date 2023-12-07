@@ -26,11 +26,27 @@ A log transformation will make the data suitable for linear modeling, because th
 To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
 **$`V = \beta L^{\alpha}`$**
 
-**$`log(V) = log(\beta L^{\alpha})`$**
+```math
+\begin{equation}
+log(V) = log(\beta L^{\alpha})
+\end{equation}
+```
 
-**$`log(V) = log(\beta) + log(L^{\alpha})`$**
 
-**$`log(V) = log(\beta) + \alpha*log(L)`$**
+```math
+\begin{equation}
+log(V) = log(\beta) + log(L^{\alpha})
+\end{equation}
+```
+
+
+```math
+\begin{equation}
+log(V) = log(\beta) + \alpha*log(L)
+\end{equation}
+```
+
+
 
 Comparing the linear model to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
 \alpha = 1.5152
@@ -42,6 +58,15 @@ The paper reports a \beta value of 1,182, which agrees with this calculation.
 
 
 To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
+
+```math
+\begin{equation}
+V = \beta L^{\alpha}
+\end{equation}
+```
+
+
+
 **$`V = \beta L^{\alpha}`$**
 **$`log(V) = log(\beta L^{\alpha})`$**
 **$`log(V) = log(\beta) + log(L^{\alpha})`$**
