@@ -80,14 +80,14 @@ png(filename="virion_plot.png", width=600, height=500)
 
 
 To calculate the volume of a 300 kb dsDNA virus, we can use the final parameters or the linear model: 
-**$`V = \beta L^{\alpha}`$**
-**$`V = 1182 * 300^{1.52}`$**
-**$`V = 6884015$**
+  **$`V = \beta L^{\alpha}`$**
+  **$`V = 1182 * 300^{1.52}`$**
+  **$`V = 6884015$**
 
-log(virion_volume) = 7.0748 + 1.5152 * log(genome_length)
-log(virion_volume) = 7.0748 + 1.5152 * log(300)
-log(virion_volume) = 15.71717
-virion_volume = 6696998
+  log(virion_volume) = 7.0748 + 1.5152 * log(genome_length)
+  log(virion_volume) = 7.0748 + 1.5152 * log(300)
+  log(virion_volume) = 15.71717
+  virion_volume = 6696998
 
 There are minor differences in these two calculations due to rounding, but both versions of the model generally predict that a 300 kb DNA virus will have a volume of 7 x 10^6 (7 million) nm^3. 
 
