@@ -1,40 +1,45 @@
 # Reproducible research: version control and R
 
-For questions 1-3: Please refer to the logistic growth fork at https://github.com/1062648/logistic_growth . 
+For questions 1-3: Please refer to the README.md file of the logistic growth repo at https://github.com/1062648/logistic_growth . 
 
 # Question 4
 
 Initially, the two faceted plots show different paths because each path is determined by a different set of random steps. Also, every time I re-run the code, a different random path is generated for each left and right graph. 
 
-A random seed is a feature that determines the set of numbers that will be used when random numbers are used. Usually, when getting a set of random numbers in R, R will choose a random seed for you. However, this is not reproducible--every time the code is run, a different set of random numbers will be used, and results and plots will look different. Instead of a random seed, you can use a set seed. A set seed fixes the random numbers generated for a project so that every time the code runs, including when different users run the code on different devices, the same data and figures will be generated. When code relies on drawing random numbers, it is important to use a set seed to ensure reproducibility. 
+A seed is a feature that determines the set of numbers that will be used when random numbers need to be generated. Effectively, an initial number determines the sequence of seemingly random numbers that follow. Usually, when getting a set of random numbers in R, R will choose a random seed for you to give the appearance of true randomness in the values provided. However, this is not reproducible--every time the code is run, a different random seed and therefore set of random numbers will be used, and results and plots incorporating randomness in their computation will look different. Instead of a random seed, you can use a set seed. A set seed fixes the random numbers generated for a project so that every time the code runs, including when different users run the code on different devices, the same data and figures will be generated based on the same set of random numbers. When code relies on drawing random numbers, it is important to use a set seed to ensure reproducibility. 
 
-I used the function set.seed to make sure the same random number distribution is used for every run of the code. When I use the set.seed function before the random_walk function both times it is used, the left and right graphs look the same -- the same set of random numbers are being used to create both plots. 
+I used the function set.seed to make sure the same random number distribution is used for every run of the code. When I use the set.seed function before the random_walk function both times it is used, the left and right graphs look the same -- the same set of random numbers are being used to create both plots. This holds true when I run and re-run the code and if I run the code in different types of RStudio (for example, on PositCloud vs my device's installed RStudio). 
 
-I committed the changes (adding a fixed seed to both plots). This image shows the commit history confirming the change. 
+I committed the changes (adding a set seed to both plots) and pushed it to my repo. This image shows the commit history confirming the change. 
 
 <img width="1397" alt="Screenshot 2023-12-05 at 10 32 55 PM" src="https://github.com/audickinson/reproducible-research_homework/assets/150164051/430455bc-54b5-46d4-8e28-06995836a407">
 
 
 # Question 5
 
+Code is in q5.R : https://github.com/1062648/reproducible-research_homework/blob/main/q5.R
 
-summary(Cui_etal2014)
 The dataset has 13 columns and 33 rows.
-
 
 A log transformation will make the data suitable for linear modeling, because the relationship between genome size and volume follows an exponential relationship. 
 
+To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
+**$`V = \beta L^{\alpha}`$**
 
-Cui_etal2014$log_volume <- log(Cui_etal2014$`Virion volume (nm×nm×nm)`)
-Cui_etal2014$log_genome_length <- log(Cui_etal2014$`Genome length (kb)`)
+**$`log(V) = log(\beta L^{\alpha})`$**
 
-model <- lm(log_volume ~ log_genome_length  , Cui_etal2014)
-summary(model)
+**$`log(V) = log(\beta) + log(L^{\alpha})`$**
 
-Obtained from model: 
-intercept = 7.0748, p = 2.28e-10
-log_volume = 1.5152, p = 6.44e-10
-These coefficients are statistically significant. 
+**$`log(V) = log(\beta) + \alpha*log(L)`$**
+
+Comparing the linear model to this transformation, the intercept represents log(\beta) while the slope represents \alpha. 
+\alpha = 1.5152
+In table 2 of the paper, the authors report the \alpha value for dsDNA viruses as 1.52, which exactly matches the \alpha value found here. 
+
+To find \beta, back-transform the intercept: e^7.0748 = 1181.807. 
+
+The paper reports a \beta value of 1,182, which agrees with this calculation.
+
 
 To match these linear coefficients to the exponential equation referenced in the paper, we need to use rules of logarithms:
 **$`V = \beta L^{\alpha}`$**
